@@ -30,7 +30,10 @@ public class addtest extends AppCompatActivity {
 
     public void next(View view)
     {
+
         Intent intent = new Intent(getApplicationContext(),addrules.class);
+        intent.putExtra("QUES",QuesBuffer);
+        intent.putExtra("FUSN",FUSN);
         startActivity(intent);
     }
     String ques="" ;
@@ -39,7 +42,7 @@ public class addtest extends AppCompatActivity {
     String optC="" ;
     String optD="" ;
     String ans="" ;
-    String desc;
+    String FUSN;
     static  String[] ListElements = new String[]{"Questions : "};
     ListView listview;
     static  List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
@@ -62,11 +65,17 @@ public class addtest extends AppCompatActivity {
         optC=intent.getStringExtra("optC");
         optD=intent.getStringExtra("optD");
         ans=intent.getStringExtra("ans");
+        //FUSN=intent.getStringExtra("FUSN");
+        FUSN=faculty.FUSN;
+        Log.e("USNNNNNNNNNNNNNAddTest",FUSN);
+
+
+
         if(ques!=null&&optA!=null){
-            QuesBuffer=QuesBuffer+ques+optA+optB+optC+optD+ans;
+            QuesBuffer=QuesBuffer+ques+"~`^"+optA+",,,"+optB+",,,"+optC+",,,"+optD+",,,"+ans+"~`^";
         }
-        if(ques!=null){
-            QuesBuffer=QuesBuffer+ques;
+        else if(ques!=null){
+            QuesBuffer=QuesBuffer+ques+"^~`";
         }
 
         Log.e("Successss",QuesBuffer);

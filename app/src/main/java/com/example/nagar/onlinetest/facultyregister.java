@@ -52,6 +52,7 @@ public class facultyregister extends AppCompatActivity {
                         Log.e("response-success", "11111111111111111111111111111111111111111111111111111");
                         if(response.body().getStatus().equals("True")){
                             Intent intent = new Intent(getApplicationContext(),faculty.class);
+                            intent.putExtra("FUSN",FUSN);
                             startActivity(intent);
 
 
@@ -93,6 +94,7 @@ public class facultyregister extends AppCompatActivity {
     EditText FacultyUSN;
     EditText FacultyPasswrd;
     EditText FacultyReenterPasswd;
+    String FUSN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,5 +104,6 @@ public class facultyregister extends AppCompatActivity {
         FacultyUSN = (EditText)findViewById(R.id.editText4);
         FacultyPasswrd = (EditText)findViewById(R.id.editText5);
         FacultyReenterPasswd = (EditText)findViewById(R.id.editText6);
+        FUSN=FacultyUSN.getText().toString();
     }
 }

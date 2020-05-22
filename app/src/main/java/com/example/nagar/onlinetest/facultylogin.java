@@ -23,8 +23,6 @@ public class facultylogin extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Uploading...");
         progressDialog.show();
-        Intent intent = new Intent(getApplicationContext(),faculty.class);
-        startActivity(intent);
 
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("usn", FacultyUsn.getText().toString());
@@ -45,6 +43,7 @@ public class facultylogin extends AppCompatActivity {
                         Log.e("response-success", "11111111111111111111111111111111111111111111111111111");
                         if(response.body().getStatus().equals("Success!")){
                             Intent intent = new Intent(getApplicationContext(),faculty.class);
+                            intent.putExtra("FUSN",FacultyUsn.getText().toString());
                             startActivity(intent);
 
 
