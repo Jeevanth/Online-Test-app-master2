@@ -147,7 +147,7 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
     public void onTimeSet(TimePicker timePicker, int i, int i1) {
         if(p==1)
         {
-            editText15.setText("Hour : "+  i  + " Minute : " + i1 );
+            editText15.setText("Hour : "+  i  + " Minute : " + i1                 );
             STIME= i  + ":" + i1+":00";
         }
        if(p==0)
