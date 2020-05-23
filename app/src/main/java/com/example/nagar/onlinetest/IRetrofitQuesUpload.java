@@ -12,6 +12,6 @@ public interface IRetrofitQuesUpload {
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    @POST("quesupload/")
+    @POST("qns/")
     Call<Objec> postRawJSON(@Body JsonObject locationPost);
 }

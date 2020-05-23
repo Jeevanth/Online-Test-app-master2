@@ -36,6 +36,7 @@ public class facultyregister extends AppCompatActivity {
             jsonObject.addProperty("usn", FacultyUSN.getText().toString());
             jsonObject.addProperty("email", FacultyEmail.getText().toString());
             jsonObject.addProperty("pass",FacultyPasswrd.getText().toString());
+            jsonObject.addProperty("name","dummy");
             IRetrofit jsonPostService = ServiceGenerator.createService(IRetrofit.class, "http://ec2-13-233-208-238.ap-south-1.compute.amazonaws.com/");
             Call<Objec> call = jsonPostService.postRawJSON(jsonObject);
             Log.e("call",jsonObject.toString());
@@ -47,7 +48,7 @@ public class facultyregister extends AppCompatActivity {
                         progressDialog.dismiss();
 
 
-                        Log.e("response-success", response.body().getName());
+
                         Log.e("response-success", response.body().getStatus());
                         Log.e("response-success", "11111111111111111111111111111111111111111111111111111");
                         if(response.body().getStatus().equals("True")){

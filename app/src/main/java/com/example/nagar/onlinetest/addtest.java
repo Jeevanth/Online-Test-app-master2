@@ -72,7 +72,7 @@ public class addtest extends AppCompatActivity {
 
 
         if(ques!=null&&optA!=null){
-            QuesBuffer=QuesBuffer+ques+"~`^"+optA+",,,"+optB+",,,"+optC+",,,"+optD+",,,"+ans+"~`^";
+            QuesBuffer=QuesBuffer+ques+"~`#^"+optA+",,,"+optB+",,,"+optC+",,,"+optD+",,,"+ans+"~`^";
         }
         else if(ques!=null){
             QuesBuffer=QuesBuffer+ques+"^~`";
