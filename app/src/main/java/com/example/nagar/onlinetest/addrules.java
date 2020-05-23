@@ -46,7 +46,7 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
         }
         if (!name.isEmpty() && !code.isEmpty())
         {
-            Toast.makeText(this, " Rules are added ", Toast.LENGTH_SHORT).show();
+
             editText19.setText("");
             editText17.setText("");
         }
@@ -56,12 +56,13 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
 
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("FUSN", FUSN);
-            jsonObject.addProperty("QUES",QUES);
-            jsonObject.addProperty("STIME", STIME);
-            jsonObject.addProperty("ETIME",ETIME);
-            jsonObject.addProperty("TNAME",name);
-            jsonObject.addProperty("TCODE",code);
+            jsonObject.addProperty("fusn", FUSN);
+
+            jsonObject.addProperty("ques",QUES);
+            jsonObject.addProperty("stime", "2020-05-21 "+STIME);
+            jsonObject.addProperty("etime","2020-05-21 "+ETIME);
+            jsonObject.addProperty("tname",name);
+            jsonObject.addProperty("tcode",code);
             IRetrofitQuesUpload jsonPostService = ServiceGenerator.createService(IRetrofitQuesUpload.class, "http://ec2-13-233-208-238.ap-south-1.compute.amazonaws.com/");
             Call<Objec> call = jsonPostService.postRawJSON(jsonObject);
             Log.e("call",jsonObject.toString());
@@ -76,6 +77,10 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
                        // Log.e("response-success", response.body().getName());
                         Log.e("response-success", response.body().getStatus());
                         Log.e("response-success", "11111111111111111111111111111111111111111111111111111");
+                        if(response.body().getStatus().equals("False")){
+                            Toast.makeText(addrules.this, "Rules not added", Toast.LENGTH_SHORT).show();
+
+                        }
 
 
 
@@ -143,12 +148,12 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
         if(p==1)
         {
             editText15.setText("Hour : "+  i  + " Minute : " + i1 );
-            STIME="Hour : "+  i  + " Minute : " + i1;
+            STIME= i  + ":" + i1+":00";
         }
        if(p==0)
         {
             editText16.setText("Hour : "+  i  + " Minute : " + i1 );
-            ETIME="Hour : "+  i  + " Minute : " + i1;
+            ETIME=  i  + ":" + i1+":00";
         }
 
     }
