@@ -9,29 +9,61 @@
     tools:context="com.example.nagar.onlinetest.faculty">
 
     <RelativeLayout
-        android:layout_width="403dp"
-        android:layout_height="598dp"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="316dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/curve1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#ffffff"
         app:layout_constraintVertical_bias="0.015">
 
-        <android.support.v4.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_view_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000" />
-        </android.support.v4.widget.NestedScrollView>
+            <ListView
+                android:id="@+id/Listview"
+                android:layout_width="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_height="311dp"
+                android:drawSelectorOnTop="false" />
+
+
+
+
+        </LinearLayout>
 
 
     </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/curve1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
+        tools:layout_editor_absoluteX="15dp">
+        <ListView
+            android:id="@+id/Listview1"
+            android:layout_centerHorizontal="true"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:drawSelectorOnTop="false" />
+    </LinearLayout>
+
+
+
 
     <Button
         android:id="@+id/button"
@@ -58,5 +90,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.937" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Upcoming Tests :    "
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

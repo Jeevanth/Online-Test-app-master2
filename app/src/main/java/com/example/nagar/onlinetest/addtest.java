@@ -27,7 +27,6 @@ public class addtest extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),descriptive.class);
         startActivity(intent);
     }
-
     public void next(View view)
     {
 
@@ -45,15 +44,17 @@ public class addtest extends AppCompatActivity {
     String FUSN;
     static  String[] ListElements = new String[]{"Questions : "};
     ListView listview;
+    int i=0;
     static  List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
 
-
+    int k=0;
 
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtest);
         listview = findViewById(R.id.listView1);
@@ -75,7 +76,7 @@ public class addtest extends AppCompatActivity {
             QuesBuffer=QuesBuffer+ques+"~`#^"+optA+",,,"+optB+",,,"+optC+",,,"+optD+",,,"+ans+"~`^";
         }
         else if(ques!=null){
-            QuesBuffer=QuesBuffer+ques+"^~`";
+            QuesBuffer=QuesBuffer+ques+"~`^";
         }
 
         Log.e("Successss",QuesBuffer);
@@ -84,8 +85,10 @@ public class addtest extends AppCompatActivity {
 
 
         if(ques!=null) {
+            k++;
 
-            ListElementsArrayList.add(ques);
+            ListElementsArrayList.add(k+") "+ques);
+
             adapter.notifyDataSetChanged();
         }
 

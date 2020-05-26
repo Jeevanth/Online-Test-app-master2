@@ -71,7 +71,7 @@ public class facultylogin extends AppCompatActivity {
                 public void onFailure(Call<FacultyLoginObjc> call, Throwable t) {
                     progressDialog.dismiss();
 
-                    Toast.makeText(facultylogin.this, "No Internet!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(facultylogin.this, "No Resposne!!!", Toast.LENGTH_SHORT).show();
                     Log.e("response-success", "22222222222222222222222222");
                     Log.e("response-failure", call.toString());
                 }

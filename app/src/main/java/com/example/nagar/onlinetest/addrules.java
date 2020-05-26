@@ -25,7 +25,7 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
     EditText editText19;
     EditText editText17;
     int p=0;
-    String FUSN;
+    public String FUSN;
     String STIME;
     String ETIME;
     ProgressDialog progressDialog;
@@ -40,9 +40,11 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
 
         if (name.isEmpty()) {
             Toast.makeText(this, " Test name is missing ", Toast.LENGTH_SHORT).show();
+            return;
         }
         if (code.isEmpty()) {
             Toast.makeText(this, " Test code is missing ", Toast.LENGTH_SHORT).show();
+            return;
         }
         if (!name.isEmpty() && !code.isEmpty())
         {
@@ -59,8 +61,8 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
             jsonObject.addProperty("fusn", FUSN);
 
             jsonObject.addProperty("ques",QUES);
-            jsonObject.addProperty("stime", "2020-05-21 "+STIME);
-            jsonObject.addProperty("etime","2020-05-21 "+ETIME);
+            jsonObject.addProperty("stime", "2020-05-24 "+STIME);
+            jsonObject.addProperty("etime","2020-05-26 "+ETIME);
             jsonObject.addProperty("tname",name);
             jsonObject.addProperty("tcode",code);
             IRetrofitQuesUpload jsonPostService = ServiceGenerator.createService(IRetrofitQuesUpload.class, "http://ec2-13-233-208-238.ap-south-1.compute.amazonaws.com/");
@@ -79,14 +81,14 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
                         Log.e("response-success", "11111111111111111111111111111111111111111111111111111");
                         if(response.body().getStatus().equals("False")){
                             Toast.makeText(addrules.this, "Rules not added", Toast.LENGTH_SHORT).show();
+                            return;
 
                         }
-
-
-
-
-
-
+                        Toast.makeText(addrules.this, "Question added successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(getApplicationContext(),faculty.class);
+                        intent.putExtra("FUSN",FUSN);
+                        Log.e("FUSN  RULES",FUSN);
+                        startActivity(intent);
                     }catch (Exception e){
 
                         e.printStackTrace();
@@ -147,7 +149,7 @@ public class addrules extends AppCompatActivity implements TimePickerDialog.OnTi
     public void onTimeSet(TimePicker timePicker, int i, int i1) {
         if(p==1)
         {
-            editText15.setText("Hour : "+  i  + " Minute : " + i1                 );
+            editText15.setText("Hour : "+  i  + " Minute : " + i1);
             STIME= i  + ":" + i1+":00";
         }
        if(p==0)

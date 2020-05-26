@@ -4,9 +4,11 @@ package com.example.nagar.onlinetest;
 
 
 public class Objec {
-    String name, status;
+    String name, status,st;
 
-
+    public String getSt() {
+        return st;
+    }
 
     public String getName() {
         return name;
